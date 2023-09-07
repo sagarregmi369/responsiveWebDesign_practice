@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    Padding:0;
+}
+
+// Normal 16 px = 1 rem;
+// Ethan Marcotte formula;
+// target/context=result
+html{
+    font-size:62.5%; // 10px; 10/16=0.625 =62.5%(1 rem= 10px;)
+    @include respond(big-desktop){
+            font-size: 87.5%;  // 14px; 14/16=0.875 =87.5%
+        }
+        
+    @include respond(tab-land){
+            font-size: 56.25%; // 9px; 9/16=0.5625 =56.25%
+        }
+    @include respond(tab-port){
+            font-size: 43.75%; // 7px; 7/16=0.4375 = 43.75%
+        }
+    @include respond(phone){
+            font-size: 31.25%; // 5px; 5/16=0.3125 =31.25%
+        }
+}
+
+body{
+    background-image: linear-gradient(
+        to right, 
+        $color-secondary,  
+        $color-primary, 
+    );
+}
+.container{
+    height:100vh;
+    width:100%;
+    display:grid;
+    grid-template-rows: 10vh 90vh min-content;
+    grid-template-columns:[start]1fr [content-start]repeat(8, [col-start]minmax(min-content, 16rem)[col-end]) [content-end]1fr[end];
+    @include respond(big-desktop){
+        grid-template-columns:[start]1fr [content-start]repeat(8, [col-start]minmax(min-content, 20rem)[col-end]) [content-end]1fr[end];
+    }
+    @include respond(tab-land){
+        grid-template-columns: [start content-start]repeat(8, [col-start]minmax(min-content, 16rem)[col-end])[content-end end];
+    }
+    @include respond(phone){
+        width:100%;
+        grid-template-rows: [heading-start start]15vh[heading-end news-start] 50vh [news-end search-start] 50vh[search-end end] ;
+        grid-template-columns: [ start content-start]repeat(4, 25vw)[content-end end];
+    }
+}
+

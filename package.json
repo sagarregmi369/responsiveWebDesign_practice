@@ -1,0 +1,15 @@
+{
+  "name": "kinnu-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass scss/main.scss css/script.css -w"
+  },
+  "author": "sagar",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^7.0.3"
+  }
+}

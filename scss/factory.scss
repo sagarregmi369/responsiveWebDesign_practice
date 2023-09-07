@@ -1,0 +1,65 @@
+$color-primary:#022E51;
+$color-secondary:#178CA4;
+$dark-blue:#072A40;
+$white:#F9F7F0;
+$black:#000000;
+
+@mixin btn($padding, $font-size){
+    display: inline-block;
+    border: none;
+    border-radius:1rem;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    color:$white;
+    background-color: $dark-blue;
+    padding:$padding;
+    box-shadow: 0  3rem 5.5rem rgba($black, .4);
+    transition: all .3s;
+    font-size: $font-size;
+    &:hover{
+        background-color: darken($dark-blue, 15%);
+        transform: scale(1.1);
+        box-shadow: 0  4rem 6rem rgba($black, .4);   
+    }
+}
+
+/*
+$breakpoint arguement choices
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em=16px;
+*/
+@mixin respond($breakpoint){
+    @if $breakpoint == big-desktop{
+        @media only screen and (min-width: 112.5em) {@content};  //1800px//Ethen Marcotte Formula; target/context=result 1800/16=112.5em
+    }
+     @if $breakpoint == tab-land{
+        @media only screen and (max-width: 75em) {@content}; //1200px //1200/16= 75 em
+    }
+     @if $breakpoint == tab-port{
+        @media only screen and (max-width: 56.25em) {@content}; //900px //900/16= 56.25em
+    }
+     @if $breakpoint == phone{
+        @media only screen and (max-width: 37.5em) {@content}; //600px //600/16=37.5em
+    }
+}
+/*
+    @include respond(big-desktop){
+             
+        }
+        
+    @include respond(tab-land){
+            
+        }
+    @include respond(tab-port){
+            
+        }
+    @include respond(phone){
+            
+        }
+*/
+

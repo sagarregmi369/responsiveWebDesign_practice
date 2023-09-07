@@ -1,0 +1,100 @@
+.stock_gallary{
+    grid-column: content-start/6;
+    @include respond(tab-land){
+        grid-column: content-start/5;
+    }
+    @include respond(phone){
+        grid-row:news-start/news-end;
+        grid-column: start/end;
+    }
+
+    position:relative;
+    transition:all .2s;
+}
+.btn-readmore{
+    position:absolute;
+    top:50rem;
+
+    right:12rem;
+    font-size: 1.4rem;
+    @include btn(1rem, 1.6rem);
+    @include respond(tab-land){
+        top:50rem;
+        @include btn(2rem, 1.6rem);
+    }
+    @include respond(tab-port){
+        top:60rem;
+        @include btn(2rem, 1.6rem);
+
+
+    }
+    @include respond(phone){
+        top:62rem;
+        @include btn(1.8rem, 1.6rem);
+
+    }
+    @include respond(big-desktop){
+             top:60rem;
+             @include btn(1rem, 1.6rem);
+    }
+    
+}
+.gallary{
+    width:100%;
+    @include respond(phone){
+        margin-left:5rem;
+
+    }
+    position:relative;
+    &:hover &_photo:not(:hover){
+        transform: scale(.9);
+    }
+    &_photo{
+        width:50%; 
+        position:absolute;
+        box-shadow: 0  1.5rem 4rem rgba($black, .4);
+        z-index:1;
+        transition: all .2s;
+        outline-offset: .6rem;
+    
+        &:hover{
+            outline: .8rem solid $color-primary;
+            box-shadow: 0  3rem 5rem rgba($black, .8);
+            transform: scale(1.05);
+            z-index:100;
+        }
+        &_1{
+            top:13rem;
+            @include respond(tab-port){
+                top:20rem;
+            }
+            left:0;
+            z-index:10;
+            
+        }
+        &_2{
+            top:9rem;
+            @include respond(tab-port){
+                top:14rem;
+            }
+            left:40%;
+        }
+        &_3{
+            top:25rem;
+            @include respond(tab-port){
+                top:30rem;
+            }
+            left:10%;
+        }
+        &_4{
+            top:23rem;
+            @include respond(tab-port){
+                top:28rem;
+            }
+            left:35%;
+        }
+    }
+}
+img{
+    max-width: 100%;
+}
